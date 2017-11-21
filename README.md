@@ -3,6 +3,9 @@ Java Swing app/game to play around with random set of colors and do some pixel s
 
 I created this app/game just to test out Java Swing and try out GitHub.
 
+# Random Painter Download :
+Download executable jar : https://github.com/9paradox/RandomPainter/raw/master/Download/RandomPainterApp.jar
+
 # Random Painter Basics :
 - To paint out pixel style art.
 - Colors are generated randomly.
