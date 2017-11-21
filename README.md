@@ -11,5 +11,5 @@ I created this app/game just to test out Java Swing and try out GitHub.
 - Click on Reset Canvas to clear the canvas.
 
 # RandomPainter Screenshot : 
-![Alt text](RandomPainter/RandomPaint/RP.PNG?raw=true "RandomPainter")
+![Alt text](RandomPaint/RP.PNG?raw=true "RandomPainter")
 
