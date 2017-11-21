@@ -9,11 +9,57 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class CanvasControls extends JPanel{
-	public static JLabel resetText,randomColorText;
+	public static JLabel resetText,randomColorText,saveimg;
 	private PaintingWindow game;
 	public CanvasControls(PaintingWindow g) {
 		game = g;
 		setBackground(Color.BLACK);
+		
+		saveimg = new JLabel("Save As Image",JLabel.CENTER);
+		saveimg.setEnabled(true);
+		saveimg.setOpaque(true);
+		saveimg.setFont(new Font(getFont().getName(), Font.BOLD, 23));
+		saveimg.setForeground(Color.white);
+		saveimg.setBackground(Color.black);
+		saveimg.setSize(400, 100);
+		saveimg.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				saveimg.setForeground(Color.cyan);
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				saveimg.setForeground(Color.white);
+				
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					game.saveAsImage();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				saveimg.setForeground(Color.DARK_GRAY);
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		add(saveimg);
+		
 		resetText = new JLabel("Reset Canvas",JLabel.CENTER);
 		resetText.setEnabled(true);
 		resetText.setOpaque(true);
@@ -39,7 +85,6 @@ public class CanvasControls extends JPanel{
 				
 					game.resetGame();
 				Debuger.Log("Canvas Resetting");
-				
 			}
 
 			@Override
@@ -96,7 +141,7 @@ public class CanvasControls extends JPanel{
 			}
 		});
 		add(randomColorText);
-		setLayout(new GridLayout(1,2));
+		setLayout(new GridLayout(1,3));
 	}
 	
 }
