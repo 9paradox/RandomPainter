@@ -8,10 +8,10 @@ import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class CanvasReset extends JPanel{
+public class CanvasControls extends JPanel{
 	public static JLabel resetText,randomColorText;
 	private PaintingWindow game;
-	public CanvasReset(PaintingWindow g) {
+	public CanvasControls(PaintingWindow g) {
 		game = g;
 		setBackground(Color.BLACK);
 		resetText = new JLabel("Reset Canvas",JLabel.CENTER);

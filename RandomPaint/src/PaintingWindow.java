@@ -11,20 +11,20 @@ import javax.swing.JOptionPane;
 
 public class PaintingWindow extends JFrame{
 
-	ColorPanel status;
+	ColorPanel colorPanel;
 	PaintCanvas paintCanvas;
-	CanvasReset reset;
+	CanvasControls canvasControls;
 	BorderLayout layout;
 	public PaintingWindow() {
 		paintCanvas = new PaintCanvas();
-		status = new ColorPanel();
+		colorPanel = new ColorPanel();
 		layout = new BorderLayout();
-		reset = new CanvasReset(this);
+		canvasControls = new CanvasControls(this);
 		setLayout(layout);
 		
-		add(status, BorderLayout.PAGE_START);
+		add(colorPanel, BorderLayout.PAGE_START);
 		add(paintCanvas, BorderLayout.CENTER);
-		add(reset,BorderLayout.PAGE_END);
+		add(canvasControls,BorderLayout.PAGE_END);
 		
 		setTitle("Paint With Random Colors");
 		pack();
@@ -34,14 +34,14 @@ public class PaintingWindow extends JFrame{
 	}
 	
 	public void saveAsImg(String imgname) throws IOException{
-		status.setVisible(false);
-		reset.setVisible(false);
+		colorPanel.setVisible(false);
+		canvasControls.setVisible(false);
 		Container c = getContentPane();
 		BufferedImage im = new BufferedImage(c.getWidth(), c.getHeight(), BufferedImage.TYPE_INT_ARGB_PRE);
 		c.paint(im.getGraphics());
 		ImageIO.write(im, "PNG", new File(imgname));
-		status.setVisible(true);
-		reset.setVisible(true);
+		colorPanel.setVisible(true);
+		canvasControls.setVisible(true);
 	}
 	
 	public void resetGame(){
